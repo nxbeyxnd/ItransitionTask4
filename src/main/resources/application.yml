@@ -1,0 +1,31 @@
+server:
+  port: 8190
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:mydatabase;MODE=PostgreSQL
+    username: root
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 23053377844-eulbn7b8ovsr31lgvo72135nsl0s950b.apps.googleusercontent.com
+            client-secret: zII7NlMtv5ru9zeuIz9sewDz
+            scope:
+              - email
+              - profile
+              - openid
+  flyway:
+    enabled: true
+    locations: classpath:/db/migration
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: false
