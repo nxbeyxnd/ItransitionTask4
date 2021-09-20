@@ -3,20 +3,18 @@ package com.nxbeyxnd.site.models.entities;
 import com.nxbeyxnd.site.models.emuns.EnumUserStatuses;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "user_table")
+@Table(name = "users")
 @Data
 @NoArgsConstructor
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private String id;
+    private Long id;
 
     @Column(name = "name")
     private String name;
@@ -35,7 +33,4 @@ public class User {
 
     @Column(name = "user_status")
     private EnumUserStatuses status;
-
-
-
 }
